@@ -1,5 +1,6 @@
 import express from 'express'
 import { buscarClientes } from './DAO/cliente/buscar_cliente.js'
+import { buscarClientesLimite } from './DAO/cliente/buscarClientes_limite.js'
 import { buscarProdutos } from './DAO/produto/buscar_produto.js'
 import { buscarPedidos } from './DAO/pedido/buscar_pedido.js'
 import { buscarPedidoProdutos } from './DAO/pedido_produto/buscar_pedidoProduto.js'
@@ -20,6 +21,12 @@ app.get('/clientes',  async (req, res) => {
      let clientes = await buscarClientes();
      res.json(clientes);
 })
+
+app.get('/clienteLimite',  async (req, res) => {
+     let clientesLimite = await buscarClientesLimite();
+     res.json(clientesLimite);
+})
+
 
 app.get('/produtos',  async (req, res) => {
      let produtos = await buscarProdutos();
