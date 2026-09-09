@@ -2,7 +2,7 @@ import {conexao} from '../conexao.js'
 
 async function incluirCliente(infos){
     const data = [infos]
-    const sql = `INSERT INTO tbl_cliente (codigo, nome, telefone, limite, id_endereco, id_status) VALUES ?`
+    const sql = `INSERT INTO Cliente (codigo, nome, sobreNome, cpf, telefone, id_limite, id_endereco) VALUES ?`
     const conn = await conexao()
     
     try {
