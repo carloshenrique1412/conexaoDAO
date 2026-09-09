@@ -6,6 +6,7 @@ import { buscarPedidos } from './DAO/pedido/buscar_pedido.js'
 import { buscarPedidoProdutos } from './DAO/pedido_produto/buscar_pedidoProduto.js'
 import { buscarLimiteCredito } from './DAO/limiteCredito/buscar_limiteCredito.js'
 import { buscarEnderecos } from './DAO/endereco/buscar_endereco.js'
+import { incluirCliente } from './DAO/cliente/inserir_cliente.js'
 
 const app = express()
 
@@ -20,6 +21,13 @@ app.get('/', (req, res) => {
 app.get('/clientes',  async (req, res) => {
      let clientes = await buscarClientes();
      res.json(clientes);
+})
+
+app.post('/cliente',  async (req, res) => {
+     let {codigo, nome , sobreNome, cpf, telefone, id_limite, id_endereco} = req.body;
+     let infos = [codigo, nome , sobreNome, cpf, telefone, id_limite, id_endereco]
+     let results = await incluirCliente(infos)
+     res.json(results);
 })
 
 app.get('/clienteLimite',  async (req, res) => {
