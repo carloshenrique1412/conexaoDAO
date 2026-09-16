@@ -83,7 +83,7 @@ app.post('/inserirEndereco',  async (req, res) => {
      res.json(results);
 })
 
-app.post('/InserirLimite ',  async (req, res) => {
+app.post('/inserirLimite',  async (req, res) => {
      let {id_limite, nome} = req.body;
      let infos = [id_limite, nome]
      let results = await inserirLimite(infos)
