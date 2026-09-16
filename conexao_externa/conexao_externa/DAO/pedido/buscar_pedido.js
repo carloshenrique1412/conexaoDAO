@@ -1,9 +1,9 @@
 import {conexao} from '../conexao.js'
 
 
-async function buscarPedidoProdutos(){
-  
-    const sql = `SELECT * FROM Pedido_Produto;`
+  async function buscarPedidos(){
+  console.log('DAO de Pedido')
+    const sql = `SELECT * FROM Pedido;`
     
     const conn = await conexao()
     try {
@@ -15,6 +15,4 @@ async function buscarPedidoProdutos(){
         return err.message
       }
 }
-
-
-export {buscarPedidoProdutos}
+export {buscarPedidos}
